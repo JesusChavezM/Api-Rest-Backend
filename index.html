@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Configuración básica de la página -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Enlace al archivo de estilos CSS -->
     <link rel="stylesheet" href="/index.css" />
+    <!-- Título de la página -->
     <title>ApiRest</title>
   </head>
   <body>
+    <!-- Contenedor principal de la aplicación -->
     <div class="app-container">
+      <!-- Encabezado de la aplicación -->
       <header>
+        <!-- Título principal -->
         <h1 class="header-title">ApiRest Campeones de LoL</h1>
+        <!-- Botón para abrir el modal de agregar nuevo campeón -->
         <button class="header-button" onclick="abrirModalAgregar()">
           Nuevo
         </button>
       </header>
 
-      <!-- Añade este formulario en tu HTML donde deseas editar un campeón -->
+      <!-- Modal para editar campeones -->
       <div id="editModal" class="modal">
+        <!-- Contenido del modal -->
         <div class="modal-content">
+          <!-- Botón para cerrar el modal -->
           <span class="close" onclick="cerrarModalEdicion()">&times;</span>
+          <!-- Formulario para editar un campeón -->
           <form id="editForm">
             <h2>Editar Campeón</h2>
+            <!-- Campos para editar información del campeón -->
             <label for="editName">Nombre:</label>
             <input type="text" id="editName" name="editName" />
 
@@ -36,15 +47,22 @@
             <label for="editImage">URL de la imagen:</label>
             <input type="text" id="editImage" name="editImage" />
 
+            <!-- Botón para guardar los cambios -->
             <button type="submit">Guardar cambios</button>
           </form>
         </div>
       </div>
+
+      <!-- Modal para agregar nuevos campeones -->
       <div id="addModal" class="modal">
+        <!-- Contenido del modal -->
         <div class="modal-content">
+          <!-- Botón para cerrar el modal -->
           <span class="close" onclick="cerrarModalAgregar()">&times;</span>
+          <!-- Formulario para agregar un nuevo campeón -->
           <form id="addForm">
             <h2>Agregar Nuevo Campeón</h2>
+            <!-- Campos para ingresar información del nuevo campeón -->
             <label for="newName">Nombre:</label>
             <input type="text" id="newName" name="newName" required />
 
@@ -60,6 +78,7 @@
             <label for="newImage">URL de la imagen:</label>
             <input type="text" id="newImage" name="newImage" />
 
+            <!-- Botón para agregar el nuevo campeón -->
             <button type="button" onclick="agregarNuevoCampeon()">
               Agregar Campeón
             </button>
@@ -67,10 +86,13 @@
         </div>
       </div>
 
+      <!-- Contenedor para mostrar dinámicamente los elementos de los campeones -->
       <div class="champs" id="champeons">
         <!-- Aquí se insertarán dinámicamente los elementos de los campeones -->
       </div>
     </div>
+
+    <!-- Enlace al archivo de scripts JavaScript -->
     <script src="/app.js"></script>
   </body>
 </html>

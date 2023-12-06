@@ -1,14 +1,14 @@
-// app.js
-
+// Función principal asincrónica que se ejecuta al cargar la página
 async function main() {
+  // Obtener el contenedor donde se mostrarán los campeones
   const divCampeones = document.getElementById("champeons");
 
   try {
-    // Hacer una solicitud a tu API RESTful para obtener la información de los campeones
+    // Hacer una solicitud a la API RESTful para obtener la información de los campeones
     const response = await fetch("http://localhost:3000/");
     const campeones = await response.json();
 
-    // Acumulador de elementos HTML
+    // Acumulador de elementos HTML para las tarjetas de campeones
     let htmlCampeones = "";
 
     // Iterar sobre los campeones y construir las tarjetas
@@ -40,7 +40,7 @@ async function main() {
 // Función para manejar la eliminación de un campeón
 async function eliminarCampeon(id) {
   try {
-    // Hacer una solicitud DELETE a tu API RESTful para eliminar el campeón por ID
+    // Hacer una solicitud DELETE a la API RESTful para eliminar el campeón por ID
     const response = await fetch(`http://localhost:3000/champeon/${id}`, {
       method: "DELETE",
     });
@@ -64,6 +64,7 @@ function abrirModalAgregar() {
   addModal.style.display = "block";
 }
 
+// Función para cerrar el modal de edición
 function cerrarModalEdicion() {
   const editModal = document.getElementById("editModal");
   if (editModal) {
@@ -82,7 +83,7 @@ function cerrarModalAgregar() {
     console.error("Modal de agregar nuevo campeón no encontrado");
   }
 }
-// Función para manejar la edición de un campeón
+
 // Función para manejar la edición de un campeón
 async function editarCampeon(id) {
   // Obtener el formulario de edición y los campos
@@ -99,6 +100,7 @@ async function editarCampeon(id) {
   // Abrir el modal antes de agregar el evento al formulario
   abrirModalEditar();
 
+  // Agregar evento de submit al formulario
   editForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -131,6 +133,8 @@ async function editarCampeon(id) {
     }
   });
 }
+
+// Función para agregar un nuevo campeón
 async function agregarNuevoCampeon() {
   const nuevoCampeon = {
     name: document.getElementById("newName").value,
@@ -144,6 +148,7 @@ async function agregarNuevoCampeon() {
   };
 
   try {
+    // Enviar una solicitud POST al servidor para agregar el nuevo campeón
     const response = await fetch("http://localhost:3000/champeon/", {
       method: "POST",
       headers: {
@@ -154,8 +159,10 @@ async function agregarNuevoCampeon() {
 
     if (response.ok) {
       console.log("Nuevo campeón agregado con éxito");
-      cerrarModalAgregar(); // Cierra el modal después de agregar un nuevo campeón
-      main(); // Vuelve a cargar la lista de campeones
+      // Cerrar el modal después de agregar un nuevo campeón
+      cerrarModalAgregar();
+      // Volver a cargar la lista de campeones
+      main();
     } else {
       console.error("Error al agregar nuevo campeón");
     }
@@ -163,7 +170,10 @@ async function agregarNuevoCampeon() {
     console.error(error);
   }
 }
+
+// Evento que se ejecuta cuando el DOM ha cargado completamente
 document.addEventListener("DOMContentLoaded", function () {
+  // Obtener el botón de agregar y agregar un evento para abrir el modal de agregar
   const addButton = document.querySelector("button");
   addButton.addEventListener("click", abrirModalAgregar);
 });
@@ -171,8 +181,10 @@ document.addEventListener("DOMContentLoaded", function () {
 // Función para obtener la información de un campeón por su ID
 async function obtenerCampeonPorId(id) {
   try {
+    // Hacer una solicitud a la API RESTful para obtener un campeón por ID
     const response = await fetch(`http://localhost:3000/${id}`);
 
+    // Verificar si el campeón no fue encontrado (status 404)
     if (response.status === 404) {
       console.log("Campeon no encontrado");
       return null;
@@ -191,4 +203,5 @@ async function obtenerCampeonPorId(id) {
   }
 }
 
+// Ejecutar la función principal al cargar la página
 main();
