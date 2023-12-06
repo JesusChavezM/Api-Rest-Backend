@@ -1,0 +1,225 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 80px; /* Ajusta según la altura del header */
+  justify-content: center;
+}
+
+header {
+  overflow: hidden;
+  background-color: #800909;
+  color: #fff;
+  padding: 4px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  margin-left: 10px; /* Ajusta el espacio a la izquierda según tus necesidades */
+}
+
+.header-button {
+  margin-right: 10px; /* Ajusta el espacio a la derecha según tus necesidades */
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.header-button:hover {
+  background-color: #7c8083;
+}
+
+.champs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px; /* Ajusta según tus preferencias */
+}
+
+.card {
+  width: 300px;
+  margin: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-info {
+  padding: 16px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.card h3 {
+  margin: 8px 0;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.card h4 {
+  margin: 8px 0;
+  font-size: 1em;
+  color: #999;
+}
+
+.card p {
+  margin: 12px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.card-info button {
+  margin-top: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.card-info button:hover {
+  background-color: #2980b9;
+}
+
+/* Estilos del modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Estilos generales del modal */
+.modal {
+    display: none; /* Por defecto, los modales están ocultos */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Centra el modal verticalmente */
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px; /* Ajusta el ancho máximo según tus necesidades */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Estilos específicos del formulario dentro del modal */
+ /* Estilos específicos para los formularios dentro del modal */
+form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Cambia la dirección del flujo a vertical */
+  }
+  
+  /* Estilos para las etiquetas de los inputs */
+  label {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos específicos para los inputs */
+  input,
+  textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos específicos para los botones del formulario */
+  button {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #217dbb;
+  }
+  

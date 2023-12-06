@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/index.css" />
+    <title>ApiRest</title>
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1 class="header-title">ApiRest Campeones de LoL</h1>
+        <button class="header-button" onclick="abrirModalAgregar()">
+          Nuevo
+        </button>
+      </header>
+
+      <!-- Añade este formulario en tu HTML donde deseas editar un campeón -->
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="cerrarModalEdicion()">&times;</span>
+          <form id="editForm">
+            <h2>Editar Campeón</h2>
+            <label for="editName">Nombre:</label>
+            <input type="text" id="editName" name="editName" />
+
+            <label for="editTitle">Título:</label>
+            <input type="text" id="editTitle" name="editTitle" />
+
+            <label for="editTags">Tags (separados por comas):</label>
+            <input type="text" id="editTags" name="editTags" />
+
+            <label for="editDescription">Descripción:</label>
+            <textarea id="editDescription" name="editDescription"></textarea>
+
+            <label for="editImage">URL de la imagen:</label>
+            <input type="text" id="editImage" name="editImage" />
+
+            <button type="submit">Guardar cambios</button>
+          </form>
+        </div>
+      </div>
+      <div id="addModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="cerrarModalAgregar()">&times;</span>
+          <form id="addForm">
+            <h2>Agregar Nuevo Campeón</h2>
+            <label for="newName">Nombre:</label>
+            <input type="text" id="newName" name="newName" required />
+
+            <label for="newTitle">Título:</label>
+            <input type="text" id="newTitle" name="newTitle" required />
+
+            <label for="newTags">Tags (separados por comas):</label>
+            <input type="text" id="newTags" name="newTags" />
+
+            <label for="newDescription">Descripción:</label>
+            <textarea id="newDescription" name="newDescription"></textarea>
+
+            <label for="newImage">URL de la imagen:</label>
+            <input type="text" id="newImage" name="newImage" />
+
+            <button type="button" onclick="agregarNuevoCampeon()">
+              Agregar Campeón
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="champs" id="champeons">
+        <!-- Aquí se insertarán dinámicamente los elementos de los campeones -->
+      </div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
